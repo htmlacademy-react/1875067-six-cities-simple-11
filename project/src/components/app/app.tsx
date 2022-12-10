@@ -5,19 +5,21 @@ import MainPage from '../../pages/main-page/main-page';
 import LoginPage from '../../pages/login-page/login-page';
 import PropertyPage from '../../pages/property-page/property-page';
 import NotFoundPage from '../../pages/not-found-page/not-found-page';
+import {Offer} from '../../types/types';
 
 type AppScreenProps = {
   cardsCount: number;
+  offers: Offer[];
 }
 
-function App ({cardsCount}: AppScreenProps): JSX.Element {
+function App ({cardsCount, offers}: AppScreenProps): JSX.Element {
   return (
     <HelmetProvider>
       <BrowserRouter>
         <Routes>
           <Route
             path={AppRoute.Root}
-            element={<MainPage cardsCount={cardsCount} />}
+            element={<MainPage cardsCount={cardsCount} offers={offers}/>}
           />
           <Route
             path={AppRoute.Login}
